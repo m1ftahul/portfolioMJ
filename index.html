@@ -1,10 +1,296 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miftahul Jannah Samsudin | Junior Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..800,100&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ha:#dcfbf6;--hb:#4fd0d6;--hi:#05283f;--w1:#0d6f8a;--w2:#0a4766;--w3:#06253f;--w4:#030f20;--tx:#eafaf8;--sand:#ffd37a;--glass:rgba(255,255,255,.12);--gl:rgba(255,255,255,.28)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ha:#0a4766;--hb:#0d6f8a;--hi:#eafaf8}}
+:root[data-theme="dark"]{--ha:#0a4766;--hb:#0d6f8a;--hi:#eafaf8}
+html{scroll-behavior:smooth;scroll-padding-top:80px;background:var(--ha)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--w4);color:var(--tx);font-family:'Plus Jakarta Sans','Helvetica Neue',Arial,sans-serif;font-size:1.05rem;line-height:1.65;padding-bottom:env(safe-area-inset-bottom,0px)}
+body.c{background:linear-gradient(var(--w2),var(--w4)) fixed}
+h1,h2,h3,.f{font-family:'Fraunces',Georgia,serif;font-variation-settings:"SOFT" 100;letter-spacing:-.015em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sand);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,52px)}
+header{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:rgba(5,40,63,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+header a{text-decoration:none;color:#eafaf8}
+.logo{font:700 1.15rem 'Fraunces',serif}
+nav{display:flex;gap:clamp(14px,3vw,30px);font-weight:600;font-size:.98rem}
+nav a{opacity:.85;transition:opacity .2s}nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px;text-decoration-color:var(--sand)}
+.hero{min-height:100svh;background:linear-gradient(var(--ha),var(--hb));color:var(--hi);display:flex;flex-direction:column;justify-content:center;padding:120px 0 130px;position:relative;overflow:hidden}
+.tag{display:inline-block;background:rgba(255,255,255,.55);border:1px solid rgba(5,40,63,.25);color:#05283f;border-radius:99px;padding:5px 16px;font-weight:600;font-size:.95rem;margin-bottom:1.5rem}
+.hero h1{margin:0;font-weight:600;font-size:clamp(2.8rem,9vw,7.4rem);line-height:.98}
+.hero h1 span{display:block;font-weight:300;font-style:italic;font-size:.5em;margin-top:.4em;line-height:1.1;max-width:15em}
+.hero p{max-width:31em;font-size:clamp(1.1rem,2vw,1.35rem);margin:1.5rem 0}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-weight:700;text-decoration:none;padding:13px 26px;border-radius:99px;background:var(--sand);color:#05283f;border:2px solid var(--sand);display:inline-block;transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer;font-size:1rem}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.28)}
+.btn.o{background:transparent;color:inherit;border-color:currentColor}
+.btn.off{opacity:.65;pointer-events:none;background:transparent;border:2px dashed currentColor;color:var(--tx)}
+.waves{position:absolute;left:0;bottom:-1px;width:200%;height:110px;animation:sway 16s linear infinite}
+.waves.b{animation-duration:23s;animation-direction:reverse;opacity:.55;height:90px}
+@keyframes sway{to{transform:translateX(-50%)}}
+section{padding:90px 0}
+h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:600;margin:0 0 .3em;line-height:1.08}
+.sub{opacity:.85;max-width:34em;margin:0 0 2.2rem}
+.work{position:relative;z-index:1}
+#deep{position:relative;overflow:hidden;background:linear-gradient(var(--w1),var(--w2) 33%,var(--w3) 66%,var(--w4))}
+.hero .wrap,#case #cc{position:relative;z-index:1}
+.sea{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.sea.fx{position:fixed}
+.fi{position:absolute;left:0;will-change:transform}
+.fi svg{display:block;animation:bob 3.5s ease-in-out var(--bd,0s) infinite}
+.fi.r svg{scale:-1 1}
+@keyframes swimL{from{transform:translateX(115vw)}to{transform:translateX(-18vw)}}
+@keyframes swimR{from{transform:translateX(-18vw)}to{transform:translateX(115vw)}}
+@keyframes bob{50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.sea{display:none}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:28px 28px 28px 8px;background:var(--glass);border:1px solid var(--gl);text-decoration:none;color:#fff;transition:transform .25s,background .25s,box-shadow .25s;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.card:hover{background:rgba(255,255,255,.2);box-shadow:0 22px 44px rgba(0,0,0,.3)}
+.card h3{margin:0;font-size:1.8rem;line-height:1.1;font-weight:600}
+.card p{margin:0}
+.tl{display:flex;flex-wrap:wrap;gap:6px}
+.tl i{font-style:normal;font-size:.85rem;font-weight:600;border:1px solid var(--gl);border-radius:99px;padding:1px 11px}
+.go{font-weight:700;color:var(--sand)}
+.cta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:6px}
+.card{position:relative;cursor:pointer}
+.stretch{color:inherit;text-decoration:none}
+.stretch::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.lv{position:relative;z-index:2;font-weight:700;text-decoration:none;background:var(--sand);color:#05283f;padding:8px 16px;border-radius:99px;font-size:.92rem;transition:transform .2s}
+.lv:hover{transform:translateY(-2px)}
+.lv.off{background:transparent;border:1px dashed var(--gl);color:var(--tx);opacity:.75}
+.about{position:relative;z-index:1}
+.ag{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,80px)}
+.ag p{margin:0 0 1em}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.3rem}
+.chip{border:1px solid var(--gl);border-radius:99px;padding:4px 16px;background:var(--glass);font-weight:600;transition:transform .3s,background .3s}
+.chip:hover{transform:translateY(-8px);background:var(--sand);color:#05283f}
+dl{margin:0}dt{font-weight:700;margin-top:1.1rem}dd{margin:0;opacity:.85}
+.contact{position:relative;z-index:1}
+.contact h2{font-size:clamp(2.4rem,7vw,5.4rem)}
+footer{background:var(--w4);color:var(--tx);opacity:.8;padding:24px 0 30px;font-size:.92rem}
+#depth{position:fixed;left:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:15;background:rgba(5,40,63,.8);color:#eafaf8;border:1px solid var(--gl);border-radius:99px;padding:5px 14px;font-weight:600;font-size:.88rem;backdrop-filter:blur(6px)}
+.bub{position:fixed;z-index:60;border:1.5px solid rgba(255,255,255,.95);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.95),rgba(255,255,255,.2) 62%);box-shadow:0 0 0 1px rgba(5,40,63,.3);border-radius:50%;pointer-events:none;animation:up 1.9s ease-out both}
+@keyframes up{to{transform:translate(var(--dx),-230px) scale(1.2);opacity:0}}
+/* case study */
+#case{display:none}
+.band{padding:112px 0 64px;color:#05283f;border-radius:0 0 56px 56px}
+.band h1{margin:20px 0 0;font-weight:600;font-size:clamp(2.2rem,7vw,5rem);line-height:1.02}
+.band p{font-size:clamp(1.1rem,2vw,1.4rem);max-width:32em;margin:.8rem 0 0}
+.band .btn{background:rgba(255,255,255,.6);border-color:transparent}
+.facts{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 10px}
+.facts div{background:var(--glass);border:1px solid var(--gl);border-radius:18px;padding:10px 18px}
+.facts b{display:block;font-size:.85rem;opacity:.75}
+.cb{max-width:780px;margin:0 auto;padding:30px clamp(20px,5vw,52px) 130px}
+.cb h3{font-size:1.8rem;margin:46px 0 16px;font-weight:600}
+.why{background:var(--glass);border:1px solid var(--gl);border-radius:22px;padding:22px 26px;margin:0}
+ol.tm{list-style:none;margin:0;padding:0 0 0 28px;border-left:3px dotted var(--sand);counter-reset:s}
+ol.tm li{counter-increment:s;position:relative;padding:0 0 22px 28px}
+ol.tm li::before{content:counter(s);position:absolute;left:-44px;top:-2px;width:30px;height:30px;border-radius:50%;background:var(--sand);color:#05283f;font:700 .9rem 'Plus Jakarta Sans',sans-serif;display:grid;place-items:center;transition:transform .2s}
+ol.tm li:hover::before{transform:scale(1.25)}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.tools div{background:var(--glass);border:1px solid var(--gl);border-radius:20px;padding:14px 18px;transition:transform .25s}
+.tools div:hover{transform:translateY(-6px)}
+.tools b{display:block}.tools span{opacity:.85;font-size:.95rem;line-height:1.4;display:block}
+.nx{display:block;margin-top:50px;text-decoration:none;border-top:1px solid var(--gl);padding-top:22px}
+.nx small{display:block;opacity:.75}.nx b{font:600 clamp(1.8rem,5vw,3rem) 'Fraunces',serif}
+.nx:hover b{color:var(--sand)}
+#live{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(3,15,32,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--gl);padding:12px 0 calc(env(safe-area-inset-bottom,0px) + 12px)}
+#live .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+#live strong{font:600 1.15rem 'Fraunces',serif}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--sand);z-index:40}
+.ov{font-size:1.12rem;margin:0}
+.fl{margin:0;padding-left:1.2em}.fl li{margin:.4em 0}
+ol.tm li b{display:block;font-size:1.05rem}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.shot{margin:0;background:var(--glass);border:1px solid var(--gl);border-radius:18px;overflow:hidden;cursor:zoom-in;transition:transform .25s}
+.shot:hover{transform:translateY(-5px)}
+.shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shot figcaption{padding:10px 14px;font-size:.95rem}
+.shot .ph{display:none;aspect-ratio:16/10;place-items:center;text-align:center;padding:14px;font-size:.9rem;opacity:.8}
+.shot.miss{cursor:default}.shot.miss img{display:none}.shot.miss .ph{display:grid}
+.note{opacity:.8;font-size:.95rem;margin:12px 0 0}
+#lb{position:fixed;inset:0;z-index:70;background:rgba(3,15,32,.94);display:none;place-items:center;padding:20px;cursor:zoom-out}
+#lb.on{display:grid}#lb img{max-width:100%;max-height:100%;border-radius:12px}
+.car{position:relative;width:min(1000px,calc(100vw - 40px));left:50%;transform:translateX(-50%)}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:20px}
+.track::-webkit-scrollbar{display:none}
+.track .shot{flex:0 0 100%;scroll-snap-align:center;cursor:zoom-in;border-radius:20px}
+.track .shot:hover{transform:none}
+.track .shot img{aspect-ratio:16/10;object-fit:contain;background:rgba(3,15,32,.55);user-select:none;-webkit-user-drag:none}
+.arw{position:absolute;top:42%;z-index:3;width:46px;height:46px;border-radius:50%;border:0;background:rgba(3,15,32,.78);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;transition:background .2s,color .2s}
+.arw:hover{background:var(--sand);color:#05283f}
+.arw.prev{left:12px}.arw.next{right:12px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:var(--gl);cursor:pointer;transition:transform .2s,background .2s}
+.dots button.on{background:var(--sand);transform:scale(1.4)}
+@media (hover:none){.arw{display:none}}
+@media (max-width:820px){.ag{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
+
 <body>
-    <h1>MY PORTFOLIO IS WORKING!</h1>
-    <p>This website is published using GitHub Pages.</p>
+<div id="bar"></div>
+<header><div class="wrap"><a class="logo" href="#top">Junior Web Developer</a><nav><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header>
+
+<div id="home">
+<div class="hero" id="top"><div class="sea" data-n="4" data-s="1" data-lo="14" data-hi="62" data-u="1"></div><div class="wrap">
+<h1>Hi, I’m Mift.<span>I build websites that hold up in the real world.</span></h1>
+<p>Junior web developer with PHP, MySQL and WordPress. I’ve built a face-recognition attendance system and sales pages for real clients.</p>
+<div class="btns"><a class="btn" href="#work">Dive into my work</a><a class="btn o" href="#" download>Download resume</a></div>
+</div>
+<svg class="waves b" viewBox="0 0 2400 100" preserveAspectRatio="none" aria-hidden="true"><path fill="#0d6f8a" d="M0 50 Q150 5 300 50 T600 50 T900 50 T1200 50 T1500 50 T1800 50 T2100 50 T2400 50 V100 H0Z"/></svg>
+<svg class="waves" viewBox="0 0 2400 100" preserveAspectRatio="none" aria-hidden="true"><path fill="#0d6f8a" d="M0 60 Q150 100 300 60 T600 60 T900 60 T1200 60 T1500 60 T1800 60 T2100 60 T2400 60 V100 H0Z"/></svg>
+</div>
+
+<div id="deep"><div class="sea" data-n="10" data-s="3" data-lo="6" data-hi="94" data-u="1" data-ulo="8" data-uhi="24"></div>
+<section class="work" id="work"><div class="wrap">
+<h2>Dive into my work</h2>
+<p class="sub">Open a project to read how I built it and what I used. Every one ends with a link to the live site.</p>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section class="about" id="about"><div class="wrap ag">
+<div><h2>About me</h2>
+<p>I’m a Diploma in Information Technology graduate who likes the moment a design turns into something that works for someone. I learned PHP and MySQL by building systems, then added WordPress and Elementor to ship client sites quickly.</p>
+<p>I turn a brief or a manager’s feedback into a finished page, and I explain my work in plain language.</p>
+<div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">JavaScript</span><span class="chip">HTML and CSS</span><span class="chip">WordPress</span><span class="chip">Elementor</span><span class="chip">WooCommerce</span><span class="chip">Git</span></div></div>
+<dl><dt>Web developer intern</dt><dd>Muggle Venture , Jun to Oct 2026</dd>
+<dt>Freelance</dt><dd>Landing pages and sales pages on WordPress</dd>
+<dt>Education</dt><dd>Diploma in Information Technology (Digital Technology), CGPA 3.80</dd>
+<dt>Based in</dt><dd>Sungai Petani, open to relocating to Kuala Lumpur or Selangor</dd></dl>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+<h2>Let’s talk about the role.</h2>
+<p class="sub">Send me a message and I’ll reply as soon as I can.</p>
+<div class="btns"><a class="btn" href="mailto:miftahulllljannah0807@gmail.com@example.com">Email me</a><a class="btn o" href="https://github.com/m1ftahul" target="_blank" rel="noopener">GitHub</a><a class="btn o" href="https://www.linkedin.com/in/miftahul-jannah-s-9b0348386/" target="_blank" rel="noopener">LinkedIn</a></div>
+</div></section>
+</div>
+<div id="depth">Depth: 0 m</div>
+</div>
+
+<div id="lb"><img alt=""></div>
+<main id="case"><div class="sea fx" data-n="6" data-s="1" data-lo="10" data-hi="90" data-u="1"></div><div id="cc"></div></main>
+<footer><div class="wrap">© 2026 Miftahul Jannah Samsudin</div></footer>
+
+<script>
+const P=[
+{id:"smarthr",t:"SmartHR AI",s:"Final year project, 2025/26",c:["#ff9db1","#ffd08a"],q:"Attendance, leave and payroll with face recognition.",
+ d:"A web system for attendance, leave and payroll, with face recognition so nobody can clock in for a friend.",
+ meta:[["My role","Dashboard, login, part of the database, deployment, technical report"],["Team","Team of 3"],["When","Semester 5, 2025"]],
+ ov:"SmartHR AI is the final year project my team of three built: an intelligent human resource management system that brings attendance, leave and payroll into one web application. The goal was to make everyday HR work simpler, and to make attendance much harder to fake.",
+ feats:["Attendance with facial recognition and liveness detection","Location checks, so staff must be at the workplace to clock in","Leave management and payroll","Secure login with encrypted passwords","A dashboard for working with the system’s data"],
+ why:"Attendance systems are easy to cheat. A photo can fool a basic face check, and someone can clock in from home. To stop this, the team combined facial recognition with liveness detection, which checks that a real person is in front of the camera, and geolocation validation, which checks where they are.",
+
+ shots:[["images/login.png","Admin Login Page"],["images/admin_db.png", "Admin Dashboard"],["images/employee_mg.png", "Employee Management"],["images/attendanceList.png", "Attendance List"],["images/location.png", "Location"],["images/attendanceRep.png", "Attendance Report"],["images/payrolManage.png", "Payroll Management"],["images/regEmployee.png", "Register Employee"],["images/registerHR.png", "Register HR Admin"],["images/regFace.png", "Register Face Recognition"],["images/empLogin.png", "Employee Login"],["images/dashboard.png","Employee Dashboard"],["images/attendance.png","Attendance with face recognition"], ["images/false_attendance.png", "unknown face detected"], ["images/company.png", "Company"]],
+ 
+ steps:[["Planned the modules","With my team of three, we split the system into attendance, leave and payroll, and agreed who would build each part."],["Designed the database","We designed the MySQL tables together. I wrote part of the database, so I worked from the shared structure to keep my pages consistent with my teammates’ work."],["Built a secure login","I built the login page and added password encryption, so passwords are stored securely and never as plain text."],["Built the dashboard","I built the dashboard that users see after logging in, bringing the system’s information together in one place."],["Added face recognition","The team connected face-api.js to the attendance flow, with liveness detection and location validation, so only a real person at the right place can record attendance."],["Deployed and tested","I published the system on Hostinger and tested it, fixing problems until it worked well."],["Wrote the technical report","I also wrote the technical report that documents the whole system."]],
+ tools:[["PHP","Server logic and the login system"],["MySQL","Employees, attendance, leave and payroll data"],["JavaScript","Dashboard behaviour in the browser"],["HTML and CSS","Page structure and styling"],["face-api.js","Face recognition and liveness detection"],["Hostinger","Putting the system online"]],
+ learn:"Building this with a team showed me how a real system fits together, from the database and login to deployment, and why testing after you publish matters as much as building.",links:[]},
+
+ {id:"muggle",t:"Muggle Venture website",s:"Internship, 2026",c:["#a8e6cf","#dcedc1"],q:"A corporate site for a digital agency.",
+ d:"A full corporate website of about 20 pages for a digital agency, built page by page with manager approval at each step.",
+ meta:[["My role","Built the whole site"],["Team","Worked with my manager for approvals"],["When","Jun to Oct 2026"]],
+ ov:"During my internship at Muggle Venture Digital Agency, my biggest task was building the agency’s corporate website: explain who the agency is and what it offers. I built it with WordPress and Elementor and worked step by step with my manager, who approved each stage.",
+ feats:["Home, About Us and Services Overview pages","Four service pages: Web Development, AI Chatbot for WhatsApp, AI Chatbot for Website, and Maintenance and Support","A navbar, call-to-action banner and footer shared across pages","A portfolio page"],
+ why:"The agency needed a company site that explains its services clearly, and a manager had to approve it as it grew. The portfolio page also needed filter tabs, which Elementor Free does not include. I compared three options: Elementor Pro, the JetSmartFilters plugin, or custom JavaScript.",
+ steps:[["Started with a wireframe","I made a grayscale wireframe of the whole site, showing structure only, with no colors, logo or fonts. My manager approved the layout before any branding decisions."],["Built the core pages","I built Home, About Us and Services Overview using the Elementor Canvas layout, with Flexbox for single-row sections and Grid for equal-width cards."],["Built the service pages","I built one service page carefully, then duplicated it for the other three instead of starting over, which kept the pages consistent and fast to produce."],["Reused shared sections","I copied the navbar, call-to-action banner and footer between pages so every page shares the same sections."],["Worked in approval loops","After each step I sent screenshots to my manager for approval, so changes came early instead of at the end."],["Planned the portfolio and launch","I worked on the portfolio page and its filter tabs, and prepared the site to go live."]],
+ tools:[["WordPress","The content system behind the site"],["Elementor (Free)","Visual page building with the Hello Elementor theme"],["Flexbox and Grid","Flexbox for single rows, Grid for equal cards"],["Elementor Canvas","A clean layout without theme headers"],["Navigator panel","Placing widgets precisely"],["Icon Box widget","Cards with an icon, title and description"]],
+ learn:"I learned to work wireframe first with regular approvals, and how much time reusable sections and duplicated pages save on a site this size.",links:[]},
+
+ {id:"asim",t:"Asim Learn sales pages",s:"Client work, 2026",c:["#b8c8ff","#e0d4ff"],q:"Four course and book sales pages.",
+ d:"Four sales pages for a learning brand: Kelas Mengaji Online, 100 Kalam, Tajwidpedia 2026 and Fiqhpedia 2026.",
+ meta:[["My role","Built and monitored the pages"],["Client","Asim Learn"],["When","2026"]],
+ ov:"Asim Learn is a learning brand. I built four sales pages for it on the BCL platform, each made to explain one offer clearly and make signing up easy: Kelas Mengaji Online, 100 Kalam (a book page), Tajwidpedia 2026 and Fiqhpedia 2026. I also monitored the pages after they went live.",
+ feats:["Kelas Mengaji Online, a class sales page","100 Kalam, a book page","Tajwidpedia 2026","Fiqhpedia 2026"],
+ why:"A sales page has one job: help a visitor understand the offer and sign up. Each page needed a clear structure and had to work well inside the client’s platform.",
+ steps:[["Understood the offer","For each page I collected what was being sold, its benefits and the details a buyer needs."],["Drafted the layout","I used AI-generated HTML as a first draft of the layout, which gave me a quick starting point to refine."],["Built it on BCL","I placed the page on the BCL platform and refined the layout, text and images so it displayed correctly."],["Checked the live page","I checked the finished page on the platform and fixed anything that did not display correctly."],["Monitored after launch","I kept monitoring the pages after launch to make sure they stayed up and working."]],
+ tools:[["HTML and CSS","Page structure and styling"],["BCL platform","Where the client’s sales pages are hosted"],["Claude AI","First drafts of the page layouts"]],
+ learn:"I learned to turn a client’s offer into a page with one clear goal, and to work within the limits of a platform.",
+ links:[["Kelas Mengaji Online","https://asimlearn.bcl.my/form/kelas-mengaji-online"],["100 Kalam book page","https://asimlearn.bcl.my/form/100kalam-2026"],["Tajwidpedia 2026","https://asimlearn.bcl.my/form/tajwidpedia-2026"],["Fiqhpedia 2026","https://asimlearn.bcl.my/form/fiqhpedia-2026"]]},
+
+ {id:"jrm",t:"JRM Holistik Besut",s:"Client work, 2026",c:["#ffd6a5","#fdffb6"],q:"An online store built on WooCommerce.",
+ d:"An e-commerce website for Dilyna JRM Holistik, built on WordPress and WooCommerce so customers can browse and buy products online.",
+ meta:[["My role","Built the online store and improved the front end"],["Client","Dilyna JRM Holistik"],["When","2026"]],
+ ov:"JRM Holistik Besut is an e-commerce website for Dilyna JRM Holistik. I built it on WordPress with WooCommerce as the online store, used the JRM Katalog plugin for the product catalogue and Elementor for the page design, then improved the front end so shopping on the site feels smooth.",
+ feats:["An online store powered by WooCommerce","A product catalogue with the JRM Katalog plugin","Shop pages designed with Elementor","Front-end improvements for a smoother shopping experience"],
+ why:"An online store has to do more than look good. Customers need to find products quickly and move through the shop without confusion, so the front end had to be easy to browse and use as well as attractive.",
+ steps:[["Set up the store","I set up the site on WordPress and prepared WooCommerce as the base of the online store."],["Added the products","I organised the product catalogue with the JRM Katalog plugin so products are easy to browse."],["Designed the pages","I built the pages with Elementor so the layout of the shop could be adjusted visually."],["Improved the front end","I went back through the site and improved the front end so it works well for the people shopping on it."]],
+ tools:[["WooCommerce","The e-commerce engine behind the online store"],["WordPress","Content system and site setup"],["JRM Katalog","The product catalogue plugin"],["Elementor","Visual page building"]],
+ learn:"I learned how an e-commerce site is put together on WordPress, and how small front-end improvements make an online store easier to shop in.",
+ links:[["Visit jrmholistikbesut.com.my","https://jrmholistikbesut.com.my"]]}];
+
+const $=s=>document.querySelector(s),H=$('#home'),C=$('#case'),cc=$('#cc'),bar=$('#bar'),dp=$('#depth'),fine=matchMedia('(pointer:fine)').matches;
+/* work cards with 3D tilt */
+P.forEach(p=>{
+ const a=document.createElement('div');a.className='card';
+ a.innerHTML=`<h3 class="f"><a class="stretch" href="#${p.id}">${p.t}</a></h3><p>${p.q}</p><div class="tl">${p.tools.slice(0,3).map(t=>`<i>${t[0]}</i>`).join('')}</div><div class="cta"><span class="go">Read how I built it</span>${(()=>{const L=p.links.filter(l=>l[1]);return L.length?L.map(l=>`<a class="lv" href="${l[1]}" target="_blank" rel="noopener">${p.links.length>1?'Visit '+l[0]:'Visit live site'}</a>`).join(''):(p.shots?'':`<span class="lv off">Live link coming soon</span>`)})()}</div>`;
+ if(fine){a.onpointermove=e=>{const r=a.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;a.style.transform=`perspective(700px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateY(-6px)`};a.onpointerleave=()=>a.style.transform=''}
+ $('#grid').appendChild(a);
+});
+
+/* fish and sharks */
+const FS='<svg viewBox="0 0 40 20" width="100%" fill="FILL"><path d="M2 10Q12 0 26 6L38 1 34 10 38 19 26 14Q12 20 2 10Z"/><circle cx="9" cy="8" r="1.4" fill="#05283f"/></svg>',SH='<svg viewBox="0 0 120 40" width="100%" fill="#7fa6bf"><path d="M2 22Q30 8 70 14L82 2 88 14Q108 14 118 4L112 20 118 36Q100 28 88 28L80 38 74 28Q36 36 2 22Z"/><circle cx="16" cy="19" r="1.6" fill="#05283f"/></svg>';
+const SUB='<svg viewBox="0 0 124 60" width="100%"><path d="M10 36Q10 22 34 22H92Q112 22 112 36Q112 50 92 50H34Q10 50 10 36Z" fill="#ffd13d"/><rect x="52" y="10" width="26" height="14" rx="5" fill="#f5b800"/><path d="M60 10V3H48" stroke="#f5b800" stroke-width="3" fill="none"/><path d="M112 30L121 22V50L112 42Z" fill="#f5b800"/><g fill="#bff3f0" stroke="#05283f" stroke-width="2"><circle cx="34" cy="36" r="5"/><circle cx="54" cy="36" r="5"/><circle cx="74" cy="36" r="5"/></g></svg>';
+function sea(el){const n=+el.dataset.n,s=+el.dataset.s,lo=+el.dataset.lo,hi=+el.dataset.hi,cols=['#ff9a76','#ffd37a','#bff3f0','#ff8fb1','#9fd8ff'],rnd=(a,b)=>a+Math.random()*(b-a);
+ for(let i=0;i<n+s;i++){const sh=i>=n,d=document.createElement('div'),r=Math.random()<.5,w=sh?rnd(130,210):rnd(26,46),dur=sh?rnd(55,85):rnd(18,40);
+  d.className='fi'+(r?' r':'');d.style.cssText=`top:${rnd(lo,hi)}%;width:${w}px;opacity:${sh?.3:.55};animation:${r?'swimR':'swimL'} ${dur}s linear ${-rnd(0,dur)}s infinite`;d.style.setProperty('--bd',-rnd(0,3)+'s');
+  d.innerHTML=sh?SH:FS.replace('FILL',cols[i%cols.length]);el.appendChild(d)}
+ if(el.dataset.u){const u=document.createElement('div'),r=Math.random()<.5,du=75;u.className='fi'+(r?' r':'');u.style.cssText=`top:${rnd(+el.dataset.ulo||lo,+el.dataset.uhi||hi)}%;width:170px;opacity:.92;animation:${r?'swimR':'swimL'} ${du}s linear ${-rnd(0,du)}s infinite`;u.innerHTML=SUB;el.appendChild(u)}}
+document.querySelectorAll('.sea').forEach(sea);
+
+/* click bubbles */
+addEventListener('pointerdown',e=>{if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ for(let i=0;i<10;i++){const b=document.createElement('i'),s=10+Math.random()*22;b.className='bub';b.style.cssText=`left:${e.clientX-s/2}px;top:${e.clientY-s/2}px;width:${s}px;height:${s}px;--dx:${(Math.random()-.5)*70}px;animation-delay:${i*60}ms`;document.body.appendChild(b);setTimeout(()=>b.remove(),2000)}});
+/* depth gauge and read progress */
+function scrolled(){const h=document.documentElement.scrollHeight-innerHeight,r=h>0?scrollY/h:0,cs=C.style.display==='block';
+ dp.textContent='Depth: '+Math.round(r*40)+' m';bar.style.width=(cs?r*100:0)+'%'}
+/* routing on the hash */
+function lb(f){if(f.classList.contains('miss'))return;$('#lb img').src=f.querySelector('img').src;$('#lb').classList.add('on')}
+$('#lb').onclick=()=>$('#lb').classList.remove('on');addEventListener('keydown',e=>{if(e.key==='Escape')$('#lb').classList.remove('on')});
+function show(){
+ const id=location.hash.slice(1),i=P.findIndex(p=>p.id===id);
+ if(i<0){H.style.display='';C.style.display='none';document.body.classList.remove('c');document.title='Miftahul Jannah Samsudin | Junior Web Developer';if(id){const el=document.getElementById(id);el&&el.scrollIntoView()}scrolled();return}
+ const p=P[i],n=P[(i+1)%P.length],g=`linear-gradient(135deg,${p.c[0]},${p.c[1]})`;
+ const multi=p.links.length>1,btn=l=>l[1]?`<a class="btn" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`:`<span class="btn off">${l[0]}: link coming soon</span>`;const lw=multi?`<h3 class="f" id="livesites">Live websites</h3><div class="btns">${p.links.map(btn).join('')}</div>`:'';
+ const live=multi?`<button class="btn" id="golive">See the live websites</button>`:p.links.length?p.links.map(btn).join(''):(p.shots?`<button class="btn" id="goshots">See the screenshots</button>`:`<span class="btn off">Live link coming soon</span>`);
+ const shots=p.shots?`<h3 class="f" id="shots">Screenshots</h3><div class="car"><button class="arw prev" aria-label="Previous screenshot">‹</button><div class="track">${p.shots.map(s=>`<figure class="shot"><img src="${s[0]}" alt="${s[1]}" draggable="false" onerror="this.closest('.shot').classList.add('miss')"><div class="ph">Add the image ${s[0]}</div><figcaption>${s[1]}</figcaption></figure>`).join('')}</div><button class="arw next" aria-label="Next screenshot">›</button></div><div class="dots">${p.shots.map((s,i)=>`<button aria-label="Screenshot ${i+1}"></button>`).join('')}</div><p class="note">There is no live demo for this project, so these screenshots show the system. Swipe or use the arrows to browse, and tap a screenshot to enlarge it.</p>`:'';
+ cc.innerHTML=`<div class="band" style="background:${g}"><div class="wrap"><a class="btn" href="#work">Back to all work</a><h1 class="f">${p.t}</h1><p>${p.d}</p></div></div>
+ <div class="wrap"><div class="facts">${p.meta.map(m=>`<div><b>${m[0]}</b>${m[1]}</div>`).join('')}</div></div>
+ <div class="cb"><h3 class="f">Overview</h3><p class="ov">${p.ov}</p>
+ ${lw}<h3 class="f">What it does</h3><ul class="fl">${p.feats.map(x=>`<li>${x}</li>`).join('')}</ul>
+ <h3 class="f">The challenge</h3><p class="why">${p.why}</p>${shots}
+ <h3 class="f">How I built it</h3><ol class="tm">${p.steps.map(s=>`<li><b>${s[0]}</b>${s[1]}</li>`).join('')}</ol>
+ <h3 class="f">Tools I used</h3><div class="tools">${p.tools.map(t=>`<div><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div>
+ <h3 class="f">What I took from it</h3><p class="why">${p.learn}</p>
+ <a class="nx" href="#${n.id}"><small>Next project</small><b>${n.t}</b></a></div>
+ <div id="live"><div class="wrap"><strong>${p.t}</strong><div class="btns">${live}</div></div></div>`;
+ H.style.display='none';C.style.display='block';document.body.classList.add('c');document.title=p.t+' | Miftahul Jannah Samsudin';scrollTo(0,0);scrolled();
+ const gs=document.getElementById('goshots');if(gs)gs.onclick=()=>document.getElementById('shots').scrollIntoView({behavior:'smooth'});
+ const gl=document.getElementById('golive');if(gl)gl.onclick=()=>document.getElementById('livesites').scrollIntoView({behavior:'smooth'});
+ const tr=document.querySelector('.track');
+ if(tr){const sl=[...tr.children],ds=[...document.querySelectorAll('.dots button')],step=()=>sl[0].offsetWidth+16,cur=()=>Math.round(tr.scrollLeft/step()),
+  go=i=>tr.scrollTo({left:Math.max(0,Math.min(sl.length-1,i))*step(),behavior:'smooth'}),upd=()=>ds.forEach((d,i)=>d.classList.toggle('on',i===cur()));
+  tr.addEventListener('scroll',upd);upd();
+  document.querySelector('.arw.prev').onclick=()=>go(cur()-1);document.querySelector('.arw.next').onclick=()=>go(cur()+1);
+  ds.forEach((d,i)=>d.onclick=()=>go(i));
+  tr.tabIndex=0;tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(cur()+1);if(e.key==='ArrowLeft')go(cur()-1)});
+  let dn=false,sx=0,s0=0,mv=false;
+  tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn=true;mv=false;sx=e.clientX;s0=tr.scrollLeft;tr.style.scrollSnapType='none'});
+  tr.addEventListener('pointermove',e=>{if(!dn)return;const dx=e.clientX-sx;if(Math.abs(dx)>5)mv=true;tr.scrollLeft=s0-dx});
+  addEventListener('pointerup',()=>{if(!dn)return;dn=false;const i=cur();tr.style.scrollSnapType='';go(i)});
+  sl.forEach(f=>f.addEventListener('click',()=>{if(mv){mv=false;return}lb(f)}))}
+}
+addEventListener('scroll',scrolled);addEventListener('hashchange',show);show();
+</script>
 </body>
 </html>
